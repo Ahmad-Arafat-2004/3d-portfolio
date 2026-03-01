@@ -22,7 +22,7 @@ function Contact() {
     const sanitizedValue = DOMPurify.sanitize(value);
 
     setForm({ ...form, [name]: sanitizedValue });
-    
+
   };
 
   const handleSubmit = (e) => {
@@ -41,19 +41,18 @@ function Contact() {
 
     setLoading(true);
 
-    emailjs
-      .send(
-        process.env.NEXT_PUBLIC_SERVICE_ID,
-        process.env.NEXT_PUBLIC_TEMPLATE_ID,
-        {
-          from_name: DOMPurify.sanitize(form.name),
-          to_name: "Ahmad Arafat",
-          from_email: DOMPurify.sanitize(form.email),
-          to_email: "ahmad2004arafat@gmail.com",
-          message: DOMPurify.sanitize(form.message),
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_KEY
-      )
+    emailjs.send(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: DOMPurify.sanitize(form.name),
+        to_name: "Ahmad Arafat",
+        from_email: DOMPurify.sanitize(form.email),
+        to_email: "ahmad2004arafat@gmail.com",
+        message: DOMPurify.sanitize(form.message),
+      },
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    )
       .then(
         () => {
           setLoading(false);
