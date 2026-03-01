@@ -150,7 +150,7 @@ const technologies = {
     },
     {
       name: "lightgbm",
-      icon: "/assets/tech/lightgbm.png",
+      icon: "/assets/tech/LightGBM.png",
       link: "https://lightgbm.readthedocs.io/en/stable/",
     },
     {
